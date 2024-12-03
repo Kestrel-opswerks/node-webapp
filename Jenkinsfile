@@ -10,7 +10,7 @@ pipeline {
 			} 
 		} 
 
-		stage('Build Docker Image') { 
+		stage('Build') { 
 			steps { 
 				script { 
 					docker.build('node-webapp:latest') 
@@ -18,7 +18,7 @@ pipeline {
 			}
 		} 
 
-		stage('Run Docker Container') { 
+		stage('Run') { 
 			steps { 
 				script { 
 					docker.image('node-webapp:latest').run('-d -p 3000:3000') 
